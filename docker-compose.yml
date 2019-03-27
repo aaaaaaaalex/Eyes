@@ -1,0 +1,10 @@
+version: "3.0"
+
+services:
+  training_instance:
+    container_name: "training_instance"
+    build:
+      context: ./trainingInstance
+      dockerfile: Dockerfile
+    volumes:
+      - "./trainingInstance/app/:/app/"
