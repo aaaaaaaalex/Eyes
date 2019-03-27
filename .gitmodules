@@ -1,0 +1,3 @@
+[submodule "trainingInstance"]
+	path = trainingInstance
+	url = https://github.com/aaaaaaaalex/transferTrainingInstance.git
