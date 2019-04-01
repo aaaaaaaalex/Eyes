@@ -1,6 +1,18 @@
 version: "3.0"
 
 services:
+  api:
+    container_name: "fyp_api"
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./api/app/:/app/"
+    depends_on:
+      - training_instance
+
   training_instance:
     container_name: "training_instance"
     build:
