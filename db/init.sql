@@ -1,0 +1,43 @@
+CREATE TABLE Model (
+    modelID INT AUTO_INCREMENT PRIMARY KEY,
+    modelCAccuracy FLOAT,
+    modelDateCreated DATETIME,
+    modelURL VARCHAR(2083)
+)
+
+CREATE TABLE Category (
+    cID INT AUTO_INCREMENT PRIMARY KEY,
+    cName VARCHAR(255)
+)
+
+CREATE TABLE User (
+    userID INT AUTO_INCREMENT PRIMARY KEY,
+    userName VARCHAR(255),
+    userEmail VARCHAR(255),
+    userPassword VARCHAR(255)
+)
+
+CREATE TABLE Img (
+    imgID INT AUTO_INCREMENT PRIMARY KEY,
+    imgURL VARCHAR(2083),
+    userID INT,
+    FOREIGN KEY (userID) REFERENCES User(userID)
+)
+
+CREATE TABLE ModelCategory (
+    mcID INT AUTO_INCREMENT PRIMARY KEY,
+    modelID INT,
+    cID INT,
+    FOREIGN KEY (modelID) REFERENCES Model(modelID),
+    FOREIGN KEY (cID) REFERENCES Category(cID)
+)
+
+CREATE TABLE ImageCategory (
+    icID INT AUTO_INCREMENT PRIMARY KEY,
+    cID INT,
+    imgID INT,
+    FOREIGN KEY (cID) REFERENCES Category(cID),
+    FOREIGN KEY (imgID) REFERENCES Img(imgID)
+)
+
+;
