@@ -3,4 +3,4 @@
 	url = https://github.com/aaaaaaaalex/transferTrainingInstance.git
 [submodule "api"]
 	path = api
-	url = ./api
+	url = https://github.com/aaaaaaaalex/api.git
