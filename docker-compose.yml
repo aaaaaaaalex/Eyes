@@ -11,7 +11,8 @@ services:
     #   context: ./db
     #   dockerfile: Dockerfile
     volumes:
-      - "./db/:/docker-entrypoint-initdb.d/"
+      - "./db/init/:/docker-entrypoint-initdb.d/"
+      - "./db/data/:/var/lib/mysql/"
 
     environment:
       MYSQL_ROOT_PASSWORD: test
