@@ -1,43 +1,44 @@
-CREATE TABLE Model (
+CREATE DATABASE IF NOT EXISTS app;
+USE `app`;
+
+CREATE TABLE IF NOT EXISTS `Model` (
     modelID INT AUTO_INCREMENT PRIMARY KEY,
     modelCAccuracy FLOAT,
     modelDateCreated DATETIME,
     modelURL VARCHAR(2083)
-)
+);
 
-CREATE TABLE Category (
+CREATE TABLE IF NOT EXISTS `Category` (
     cID INT AUTO_INCREMENT PRIMARY KEY,
     cName VARCHAR(255)
-)
+);
 
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS `User` (
     userID INT AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(255),
     userEmail VARCHAR(255),
     userPassword VARCHAR(255)
-)
+);
 
-CREATE TABLE Img (
+CREATE TABLE IF NOT EXISTS `Img` (
     imgID INT AUTO_INCREMENT PRIMARY KEY,
     imgURL VARCHAR(2083),
     userID INT,
     FOREIGN KEY (userID) REFERENCES User(userID)
-)
+);
 
-CREATE TABLE ModelCategory (
+CREATE TABLE IF NOT EXISTS `ModelCategory` (
     mcID INT AUTO_INCREMENT PRIMARY KEY,
     modelID INT,
     cID INT,
     FOREIGN KEY (modelID) REFERENCES Model(modelID),
     FOREIGN KEY (cID) REFERENCES Category(cID)
-)
+);
 
-CREATE TABLE ImageCategory (
+CREATE TABLE IF NOT EXISTS `ImageCategory` (
     icID INT AUTO_INCREMENT PRIMARY KEY,
     cID INT,
     imgID INT,
     FOREIGN KEY (cID) REFERENCES Category(cID),
     FOREIGN KEY (imgID) REFERENCES Img(imgID)
-)
-
-;
+);

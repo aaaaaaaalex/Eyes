@@ -4,7 +4,7 @@ services:
 
   db:
     image: mysql
-    container_name: "db"
+    container_name: "fyp_db"
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     # build:
@@ -30,7 +30,7 @@ services:
       - db
 
   training_instance:
-    container_name: "training_instance"
+    container_name: "fyp_training_instance"
     build:
       context: ./trainingInstance
       dockerfile: Dockerfile
