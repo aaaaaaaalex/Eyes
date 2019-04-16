@@ -15,6 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+DROP DATABASE IF EXISTS `app`;
+CREATE DATABASE `app`;
+USE `app`;
+
 --
 -- Table structure for table `Category`
 --
@@ -109,6 +114,7 @@ CREATE TABLE `Model` (
   `modelCAccuracy` float DEFAULT NULL,
   `modelDateCreated` datetime DEFAULT NULL,
   `modelURL` varchar(2083) DEFAULT NULL,
+  `modelName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`modelID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-12 19:38:25
+-- Dump completed on 2019-04-15 19:39:22
