@@ -15,14 +15,14 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `Category`
+--
 
 DROP DATABASE IF EXISTS `app`;
 CREATE DATABASE `app`;
 USE `app`;
 
---
--- Table structure for table `Category`
---
 
 DROP TABLE IF EXISTS `Category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -110,12 +110,11 @@ DROP TABLE IF EXISTS `Model`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Model` (
-  `modelID` int(11) NOT NULL AUTO_INCREMENT,
   `modelCAccuracy` float DEFAULT NULL,
   `modelDateCreated` datetime DEFAULT NULL,
   `modelURL` varchar(2083) DEFAULT NULL,
-  `modelName` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`modelID`)
+  `modelName` varchar(255) NOT NULL,
+  PRIMARY KEY (`modelName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -125,6 +124,7 @@ CREATE TABLE `Model` (
 
 LOCK TABLES `Model` WRITE;
 /*!40000 ALTER TABLE `Model` DISABLE KEYS */;
+INSERT INTO `Model` VALUES (0.697674,'2019-04-19 16:51:37',NULL,'1555341487');
 /*!40000 ALTER TABLE `Model` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,12 +137,12 @@ DROP TABLE IF EXISTS `ModelCategory`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `ModelCategory` (
   `mcID` int(11) NOT NULL AUTO_INCREMENT,
-  `modelID` int(11) DEFAULT NULL,
   `cID` int(11) DEFAULT NULL,
+  `modelName` varchar(255) NOT NULL,
   PRIMARY KEY (`mcID`),
-  KEY `modelID` (`modelID`),
   KEY `cID` (`cID`),
-  CONSTRAINT `ModelCategory_ibfk_1` FOREIGN KEY (`modelID`) REFERENCES `Model` (`modelID`),
+  KEY `ModelCategory_ibfk_1` (`modelName`),
+  CONSTRAINT `ModelCategory_ibfk_1` FOREIGN KEY (`modelName`) REFERENCES `Model` (`modelName`),
   CONSTRAINT `ModelCategory_ibfk_2` FOREIGN KEY (`cID`) REFERENCES `Category` (`cID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-15 19:39:22
+-- Dump completed on 2019-04-19 17:30:15
