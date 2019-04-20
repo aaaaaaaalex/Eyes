@@ -1,7 +1,6 @@
 version: "3.0"
 
 services:
-
   db:
     image: mysql
     container_name: "fyp_db"
@@ -12,7 +11,7 @@ services:
     #   dockerfile: Dockerfile
     volumes:
       - "./db/init/:/docker-entrypoint-initdb.d/"
-      - "./db/data/:/var/lib/mysql/"
+      - "dbdata:/var/lib/mysql/"
 
     environment:
       MYSQL_ROOT_PASSWORD: test
@@ -26,6 +25,7 @@ services:
       - "8080:8080"
     volumes:
       - "./api/app/:/app/"
+      - "instances:/instances"
     depends_on:
       - training_instance
       - db
@@ -36,8 +36,13 @@ services:
       context: ./trainingInstance
       dockerfile: Dockerfile
     volumes:
-      - "./trainingInstance/app/:/app/"
+      - "instances:/app/instances"
     ports:
       - "80:80"
     depends_on:
       - db
+
+
+volumes:
+  instances:
+  dbdata:
