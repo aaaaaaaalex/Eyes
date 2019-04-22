@@ -38,6 +38,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - "instances:/app/instances"
+      - "assets:/assets"
     ports:
       - "80:80"
     depends_on:
