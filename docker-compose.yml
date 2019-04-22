@@ -25,6 +25,7 @@ services:
       - "8080:8080"
     volumes:
       - "./api/app/:/app/"
+      - "assets:/assets"
       - "instances:/instances"
     depends_on:
       - training_instance
@@ -44,5 +45,6 @@ services:
 
 
 volumes:
+  assets:
   instances:
   dbdata:
