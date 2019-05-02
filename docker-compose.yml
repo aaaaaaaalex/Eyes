@@ -22,7 +22,7 @@ services:
       - "8080:8080"
     volumes:
       - "./api/app/:/app/"
-      - "assets:/assets"
+      - "images:/app/assets/images"
       - "instances:/instances"
     depends_on:
       - training_instance
@@ -34,15 +34,16 @@ services:
       context: ./trainingInstance
       dockerfile: Dockerfile
     volumes:
+      - "./trainingInstance/app/:/app"
       - "instances:/app/instances"
-      - "assets:/assets"
+      - "images:/assets/images/"
     ports:
       - "80:80"
     depends_on:
       - db
 
-
+      
 volumes:
-  assets:
+  images:
   instances:
   dbdata:
