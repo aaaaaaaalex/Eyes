@@ -2,7 +2,7 @@
 This is a fourth-year project repository consisting of submodule git repositories that make up the platform.
 
 ## ...what?
-Eyes is the working title for my final-year project, which is in essence, a means of sourcing new data for image-recognition deep convolutional neural networks.
+Eyes is the working title for my final-year project - a means of sourcing new data for image-recognition deep neural networks.
 Eyes is made up of a simple database (for storing image data uploaded via the API), a Keras-based training environment where new classifiers are generated, and a Flask-based API that classifies uploaded images via models trained in the aforementioned training env.
 
 ## setup
