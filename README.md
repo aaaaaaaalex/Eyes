@@ -1,5 +1,6 @@
-# Eyes - An AI-Driven, Self-Learning Image-Sharing Platform
+# Eyes - An AI-Driven, Self-Learning Image-Sharing Platform (CIT's Best Overall Computer-Science Project 2019)
 This is a fourth-year project repository consisting of submodule git repositories that make up the platform.
+
 
 ## ...what?
 Eyes is the working title for my final-year project - a means of sourcing new data for image-recognition deep neural networks.
